@@ -1,4 +1,11 @@
-import { Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { ConversationService } from './conversation.service';
 
 @Controller('api/conversation')
@@ -15,8 +22,8 @@ export class ConversationController {
     return this.conversationService.createConversation();
   }
 
-  @Get()
-  getFirstMessageInEachConversation() {
-    return this.getFirstMessageInEachConversation();
+  @Delete(':id')
+  deleteConversation(@Param('id', ParseIntPipe) id: number) {
+    return this.conversationService.deleteConversation(id);
   }
 }
