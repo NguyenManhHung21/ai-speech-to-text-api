@@ -1,12 +1,7 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Message } from './dto/message.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateMessageFailException } from './exceptions/create-message-fail.exception';
-import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class MessageService {
